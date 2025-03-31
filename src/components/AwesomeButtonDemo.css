@@ -1,0 +1,182 @@
+/* AwesomeButtonDemo.css */
+.awesome-buttons-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.awesome-buttons-container h1 {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #4361ee, #7209b7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.button-section {
+  margin-bottom: 40px;
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.button-section h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #444;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 10px;
+}
+
+.button-section p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Custom button styles */
+.custom-buttons {
+  --button-default-height: 56px;
+  --button-default-font-size: 16px;
+  --button-default-border-radius: 8px;
+  --button-horizontal-padding: 20px;
+  --button-raise-level: 7px;
+}
+
+/* Gradient button */
+.gradient-button {
+  --button-primary-color: transparent !important;
+  background: linear-gradient(45deg, #f72585, #4361ee) !important;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.4) !important;
+}
+
+/* Neon glow button */
+.neon-button {
+  --button-primary-color: #4cc9f0 !important;
+  --button-primary-color-dark: #3aa8cc !important;
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.7) !important;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(67, 97, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+  }
+}
+
+.pulse-button {
+  --button-primary-color: #4361ee !important;
+  animation: pulse 2s infinite;
+}
+
+/* Ripple effect */
+.ripple-button {
+  --button-primary-color: #7209b7 !important;
+  --button-primary-color-dark: #5c0995 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.ripple-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.info-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #4361ee;
+}
+
+.info-box h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+.info-box p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.installation-code {
+  background-color: #272c35;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.installation-code code {
+  color: #e9ecef;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-row > * {
+    width: 100%;
+  }
+}
